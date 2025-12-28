@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478beebce3f986d429807a75033591e7, type: 3}
+  m_Name: ImpactStoneData
+  m_EditorClassIdentifier: 
+  clipVariations:
+  - {fileID: 8300000, guid: a438bb66ee16d03479e0bcee9b99329f, type: 3}
+  - {fileID: 8300000, guid: b3c61091bca6feb47807a62a6d5215d6, type: 3}
+  - {fileID: 8300000, guid: b414db6abb737514bb25d1514e48bf60, type: 3}
+  - {fileID: 8300000, guid: 4c5d4e2874eaf074584174937d17e331, type: 3}
+  - {fileID: 8300000, guid: 918ebf6a81005014ea0170ea39d216af, type: 3}
+  volumeMin: 0.8
+  volumeMax: 1
+  pitchMin: 0.95
+  pitchMax: 1.05
+  category: 2
+  maxDistance: 50

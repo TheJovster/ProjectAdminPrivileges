@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5b830fd2f22943a1f19be5160922e, type: 3}
+  m_Name: MP8
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  reloadType: 1
+  animatorOverrideController: {fileID: 0}
+  weaponName: H&G MP8
+  damage: 30
+  isAutomatic: 1
+  pelletsPerShot: 0
+  spreadAngle: 0
+  magazineSize: 32
+  reloadTime: 0.5
+  fireRate: 10
+  range: 75
+  reloadTimePerRound: 0
+  projectilePrefab: {fileID: 0}
+  audioData: {fileID: 11400000, guid: df1a6125082a4314f8976c3d0c6fc903, type: 2}

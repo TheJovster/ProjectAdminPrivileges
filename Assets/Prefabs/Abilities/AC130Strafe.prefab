@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1273675145525861407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8927590106915432053}
+  - component: {fileID: 2823350395494911527}
+  m_Layer: 0
+  m_Name: AC130Strafe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8927590106915432053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273675145525861407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2823350395494911527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273675145525861407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d00f036350b0e4f8ac578ec8bb274a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityData: {fileID: 11400000, guid: f4b8e2a6339f1d048aed8a754e1c4de8, type: 2}
+  strafeWidth: 30
+  damagePointCount: 10
+  tickInterval: 0.1
+  damageRadius: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  tracerVFXPrefab: {fileID: 1769621416249240, guid: ab32929843ea40d48ae16ecaa85f794a,
+    type: 3}
+  impactVFXPrefab: {fileID: 1067536016464596, guid: 57e18706e2792ff4bb5561ed74b796e2,
+    type: 3}
+  tracerLine: {fileID: 0}
+  useContinuousSound: 1
+  cameraShakeIntensity: 0.3
+  shakePerImpact: 1
+  showDebugLine: 1
+  debugLineColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478beebce3f986d429807a75033591e7, type: 3}
+  m_Name: ExplosionAC130Strafe
+  m_EditorClassIdentifier: 
+  clipVariations:
+  - {fileID: 8300000, guid: f9268a0b42b1edc4eb5a7f4331609b7f, type: 3}
+  - {fileID: 8300000, guid: a1732e48cf662fc4090facf38b470a99, type: 3}
+  - {fileID: 8300000, guid: fdb16626ef6f286429d9095ea3ad68b5, type: 3}
+  volumeMin: 0.8
+  volumeMax: 1
+  pitchMin: 0.95
+  pitchMax: 1.05
+  category: 2
+  maxDistance: 50

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
+  m_Name: UnlockStrafingRun
+  m_EditorClassIdentifier: 
+  unlockID: 81dc8f0d-6e6d-4b97-9da4-3a1c288b25dc
+  unlockName: Unlock Strafing Run
+  description: Unlock AC130 Strafing Run
+  icon: {fileID: 0}
+  iaCost: 150
+  unlockType: 1
+  isDefaultUnlocked: 0

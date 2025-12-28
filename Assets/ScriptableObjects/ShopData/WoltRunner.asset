@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a557b62ad4b89de468dd47dd46f17a35, type: 3}
+  m_Name: WoltRunner
+  m_EditorClassIdentifier: 
+  itemName: Wolt Runner
+  description: A blast from the past... literally.
+  icon: {fileID: 0}
+  kredCost: 50
+  itemType: 0
+  weaponPrefab: {fileID: 5646629560345338466, guid: ef14438d52346ff4fb6b5d7cf98f9089,
+    type: 3}
+  abilityPrefab: {fileID: 0}
+  healAmount: 0
+  damageMultiplier: 1
+  fireRateMultiplier: 1
+  moveSpeedMultiplier: 1
+  abilityCooldownMultiplier: 1
+  requiredUnlock: {fileID: 11400000, guid: 16b7edc6151251f4794242102cbc0efd, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a557b62ad4b89de468dd47dd46f17a35, type: 3}
+  m_Name: SubmachineH&GMP8
+  m_EditorClassIdentifier: 
+  itemName: H&G MP8
+  description: The thing goes skraat
+  icon: {fileID: 0}
+  kredCost: 78
+  itemType: 0
+  weaponPrefab: {fileID: 8842338128500076270, guid: 817bd714f7b18254ea91c5358aeb690d,
+    type: 3}
+  abilityPrefab: {fileID: 0}
+  healAmount: 0
+  damageMultiplier: 1
+  fireRateMultiplier: 1
+  moveSpeedMultiplier: 1
+  abilityCooldownMultiplier: 1
+  requiredUnlock: {fileID: 11400000, guid: cd040f10b404c41478fe5a14744ba8b2, type: 2}

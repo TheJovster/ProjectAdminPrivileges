@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
+  m_Name: UnlockFUMUS
+  m_EditorClassIdentifier: 
+  unlockID: 655256c2-a0a0-4297-8276-a886612140cd
+  unlockName: Unlock FUMUS
+  description: Unlock FUMUS
+  icon: {fileID: 0}
+  iaCost: 125
+  unlockType: 0
+  isDefaultUnlocked: 0

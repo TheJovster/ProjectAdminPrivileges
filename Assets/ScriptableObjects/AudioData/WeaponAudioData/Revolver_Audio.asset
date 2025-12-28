@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a67c505ebedc7044a5b160e5b2bb0cd, type: 3}
+  m_Name: Revolver_Audio
+  m_EditorClassIdentifier: 
+  fireSound: {fileID: 11400000, guid: 956ebad82786ccc4e91aed4bfdbdafcd, type: 2}
+  reloadSound: {fileID: 11400000, guid: e306c4f9477e98644af849eab90dc2d7, type: 2}
+  emptyClickSound: {fileID: 11400000, guid: 27b9673c90abf2e44b61af3241662216, type: 2}
+  aimSound: {fileID: 0}
+  equipSound: {fileID: 0}

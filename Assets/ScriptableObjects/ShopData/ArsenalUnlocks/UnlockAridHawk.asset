@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
+  m_Name: UnlockAridHawk
+  m_EditorClassIdentifier: 
+  unlockID: c50f0283-de2f-45a5-8396-a9ed57a9da7a
+  unlockName: Unlock Arid Hawk
+  description: 'Unlocks Arid Hawk
+
+'
+  icon: {fileID: 0}
+  iaCost: 0
+  unlockType: 0
+  isDefaultUnlocked: 1

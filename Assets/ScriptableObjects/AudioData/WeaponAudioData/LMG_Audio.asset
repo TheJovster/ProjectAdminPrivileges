@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a67c505ebedc7044a5b160e5b2bb0cd, type: 3}
+  m_Name: LMG_Audio
+  m_EditorClassIdentifier: 
+  fireSound: {fileID: 11400000, guid: eb26d421a574ae640bafc5cb20cd97c7, type: 2}
+  reloadSound: {fileID: 11400000, guid: 7d56ae7db505d144ab13337fb458576d, type: 2}
+  emptyClickSound: {fileID: 11400000, guid: 6fbd9b85e6e14d642ad85e7e04b97385, type: 2}
+  aimSound: {fileID: 0}
+  equipSound: {fileID: 0}

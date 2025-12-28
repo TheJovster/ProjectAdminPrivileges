@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478beebce3f986d429807a75033591e7, type: 3}
+  m_Name: Reload_Shotgun
+  m_EditorClassIdentifier: 
+  clipVariations:
+  - {fileID: 8300000, guid: f649e671298727243b3b8f4749c0618f, type: 3}
+  - {fileID: 8300000, guid: d41d7e018a85ded4ba3359b55ef2ecd7, type: 3}
+  - {fileID: 8300000, guid: d99315c6c182100489f1577407d9a5bc, type: 3}
+  volumeMin: 0.8
+  volumeMax: 1
+  pitchMin: 0.95
+  pitchMax: 1.05
+  category: 2
+  maxDistance: 50

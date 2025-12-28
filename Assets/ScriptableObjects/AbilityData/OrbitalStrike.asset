@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0e45b7481ed6f408140d529dd928f4, type: 3}
+  m_Name: OrbitalStrike
+  m_EditorClassIdentifier: 
+  abilityName: Orbital Strike
+  description: Calls down an orbital strike on the enemies of your honeybun.
+  cooldown: 30
+  damage: 350
+  radius: 10
+  explosionVFXPrefab: {fileID: 1974830201887114, guid: 8baff3207836e304f95274c39c8d572c,
+    type: 3}
+  strikeSound: {fileID: 11400000, guid: f578a58bf868d6f45a23c9ed565f7530, type: 2}

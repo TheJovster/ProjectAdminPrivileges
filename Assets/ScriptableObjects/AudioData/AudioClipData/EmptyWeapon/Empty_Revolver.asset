@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478beebce3f986d429807a75033591e7, type: 3}
+  m_Name: Empty_Revolver
+  m_EditorClassIdentifier: 
+  clipVariations:
+  - {fileID: 8300000, guid: 7fcb771e02df89a4e917b91ed67154d8, type: 3}
+  - {fileID: 8300000, guid: a31ce65add719184bab25c734e9cae37, type: 3}
+  - {fileID: 8300000, guid: 2933e7210ab07c94daa9fa8bf261ec4d, type: 3}
+  volumeMin: 0.8
+  volumeMax: 1
+  pitchMin: 0.95
+  pitchMax: 1.05
+  category: 2
+  maxDistance: 50

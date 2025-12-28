@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5b830fd2f22943a1f19be5160922e, type: 3}
+  m_Name: AridHawk50AE
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  reloadType: 1
+  animatorOverrideController: {fileID: 0}
+  weaponName: Arid Hawk 50AE
+  damage: 70
+  isAutomatic: 0
+  pelletsPerShot: 0
+  spreadAngle: 0
+  magazineSize: 8
+  reloadTime: 0.3
+  fireRate: 1.3
+  range: 50
+  reloadTimePerRound: 0
+  projectilePrefab: {fileID: 0}
+  audioData: {fileID: 11400000, guid: dbf6664bb304a1b46b275952b922878a, type: 2}

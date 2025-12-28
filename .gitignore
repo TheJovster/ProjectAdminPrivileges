@@ -2,6 +2,9 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+# Asset Store packages
+/Assets/AssetStore/
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -25,6 +28,12 @@
 
 # Visual Studio cache directory
 .vs/
+
+# Visual Studio config
+.vsconfig
+
+# Visual Studio Code
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -70,3 +79,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Packages - ignore the folder but keep manifest files
+/[Pp]ackages/
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json
+
+# Project Settings - ignore auto-generated package settings
+/[Pp]rojectSettings/Packages-*
