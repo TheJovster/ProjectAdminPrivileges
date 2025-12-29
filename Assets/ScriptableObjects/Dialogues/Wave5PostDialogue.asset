@@ -49,4 +49,4 @@ MonoBehaviour:
   - choiceText: '"Yeah, right. As if I believe you."'
     affectionChange: -15
     nextDialogue: {fileID: 0}
-  nextDialogue: {fileID: 0}
+  nextDialogue: {fileID: 11400000, guid: f3e2f0d336ce30c42a53f694704b61f6, type: 2}

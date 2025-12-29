@@ -574,27 +574,7 @@ public class DialogueEditorWindow : EditorWindow
             return; // User cancelled
         }
 
-        // Ask user what to do with the imported data
-        int choice = EditorUtility.DisplayDialogComplex(
-            "Import Dialogue from CSV",
-            "How would you like to import this dialogue?",
-            "Create New Asset",
-            "Cancel",
-            "Overwrite Existing"
-        );
-
-        if (choice == 1) // Cancel
-        {
-            return;
-        }
-        else if (choice == 0) // Create New
-        {
-            ImportAsNewDialogue(filePath);
-        }
-        else if (choice == 2) // Overwrite Existing
-        {
-            ImportIntoExistingDialogue(filePath);
-        }
+        ImportAsNewDialogue(filePath);
     }
 
     private void ImportAsNewDialogue(string filePath)
@@ -630,68 +610,6 @@ public class DialogueEditorWindow : EditorWindow
         SetFoldoutState(assetPath, true);
 
         Debug.Log($"[Dialogue Editor] Imported CSV as new asset: {assetPath} ({lines.Count} lines)");
-    }
-
-    private void ImportIntoExistingDialogue(string filePath)
-    {
-        List<DialogueData.DialogueLine> lines = ParseCSV(filePath);
-        if (lines == null)
-        {
-            return; // Error already logged
-        }
-
-        // Get all DialogueData assets
-        if (dialogues.Count == 0)
-        {
-            EditorUtility.DisplayDialog("No Dialogues Found",
-                "There are no DialogueData assets in the project to overwrite.", "OK");
-            return;
-        }
-
-        // Create dropdown menu to select which dialogue to overwrite
-        GenericMenu menu = new GenericMenu();
-        foreach (var dialogue in dialogues.OrderBy(d => d.name))
-        {
-            DialogueData capturedDialogue = dialogue; // Capture for closure
-            menu.AddItem(new GUIContent(dialogue.name), false, () =>
-            {
-                OverwriteDialogue(capturedDialogue, lines);
-            });
-        }
-        menu.ShowAsContext();
-    }
-
-    private void OverwriteDialogue(DialogueData dialogue, List<DialogueData.DialogueLine> lines)
-    {
-        // Confirmation dialog
-        bool confirmed = EditorUtility.DisplayDialog(
-            "Confirm Overwrite",
-            $"Are you sure you want to overwrite '{dialogue.name}' with the imported data?\n\n" +
-            $"Current lines: {dialogue.lines?.Length ?? 0}\n" +
-            $"New lines: {lines.Count}\n\n" +
-            "This action cannot be undone.",
-            "Overwrite",
-            "Cancel"
-        );
-
-        if (!confirmed)
-        {
-            return;
-        }
-
-        // Overwrite the dialogue
-        dialogue.lines = lines.ToArray();
-
-        // Mark dirty and save
-        EditorUtility.SetDirty(dialogue);
-        AssetDatabase.SaveAssets();
-
-        // Update UI
-        RefreshDatabase();
-        Selection.activeObject = dialogue;
-        EditorGUIUtility.PingObject(dialogue);
-
-        Debug.Log($"[Dialogue Editor] Overwrote '{dialogue.name}' with CSV data ({lines.Count} lines)");
     }
 
     private List<DialogueData.DialogueLine> ParseCSV(string filePath)

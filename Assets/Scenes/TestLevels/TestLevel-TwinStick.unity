@@ -4094,6 +4094,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1395ac0cdbcda0846a83ebcc5367a533, type: 2}
   - {fileID: 11400000, guid: 231dbcf2739e59c4989e325857730bf2, type: 2}
   - {fileID: 11400000, guid: 7df7d78a587b630419b3bd0698fa44f1, type: 2}
+  - {fileID: 11400000, guid: f3e2f0d336ce30c42a53f694704b61f6, type: 2}
   postWaveDialogues:
   - {fileID: 11400000, guid: 76395f02fab741e41ba553d3c441b27b, type: 2}
   - {fileID: 11400000, guid: 8b2ef16ea5879284487adfe3c750f6b1, type: 2}
