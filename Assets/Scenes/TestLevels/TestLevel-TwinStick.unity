@@ -119,6 +119,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &25995276 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+    type: 3}
+  m_PrefabInstance: {fileID: 3469721942462715865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170311001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3809,31 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2611743116341041009, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611743116341041009, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_FillRect
+      value: 
+      objectReference: {fileID: 25995276}
+    - target: {fileID: 2611743116341041009, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611743116341041009, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611743116341041009, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3576389925942725314, guid: 4962bb9f39ca22f4faa6675fd9936f78,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3908,10 +3939,55 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435406096908985100, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913612282076166989, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913612282076166989, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7913612282076166989, guid: 4962bb9f39ca22f4faa6675fd9936f78,
         type: 3}
       propertyPath: m_FillAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7913612282076166989, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8117766993336813830, guid: 4962bb9f39ca22f4faa6675fd9936f78,
         type: 3}
