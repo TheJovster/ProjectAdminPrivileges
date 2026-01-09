@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day20Post
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"They survived. Against all statistical probability, they survived. The
+      wave is broken. The loop, however, remains. For now. But there is something
+      different in the air tonight. Hope, perhaps. Or perhaps I am simply becoming
+      sentimental in my old age."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"We did it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"We did."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"You were incredible out there."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I learned from the best."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"We make a good team."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"We do. ...What happens now?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Now? We rest. We rebuild. And tomorrow'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"And the loop?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"We will break it. I know we will."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"How can you be so certain?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Because we are stronger together than this thing is. Because we have
+      each other. Because I refuse to let anything take you from me. Not demons'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You are absurdly stubborn'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Yeah. You love it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I do. I love you."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"I love you too. Always have. Always will."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: And there we have it. Two people who should never have met, brought together
+      by cosmic accident and kept together by sheer bloody-minded determination.
+      The loop is not broken yet, but for the first time in eighteen iterations,
+      I genuinely believe it might be. Nature, as I have said before, is truly fascinating.
+      Especially when it involves interdimensional romance and temporal anomalies.
+      Cheerio."
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

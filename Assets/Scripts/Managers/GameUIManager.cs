@@ -77,6 +77,19 @@ public class GameUIManager : MonoBehaviour
             queenHealthBar.value = current;
         }
     }
+    private void UpdatePlayerHealth(int current, int max)
+    {
+        if (playerHealthText != null)
+        {
+            playerHealthText.text = $"{current}/{max}";
+        }
+
+        if (playerHealthBar != null)
+        {
+            playerHealthBar.maxValue = max;
+            playerHealthBar.value = current;
+        }
+    }
 
     private void UpdateAmmo()
     {
@@ -122,20 +135,6 @@ public class GameUIManager : MonoBehaviour
         if (weaponName != null && weapon != null)
         {
             weaponName.text = weapon.GetWeaponData().weaponName;
-        }
-    }
-
-    private void UpdatePlayerHealth(int current, int max)
-    {
-        if (playerHealthText != null)
-        {
-            playerHealthText.text = $"HP: {current}/{max}";
-        }
-
-        if (playerHealthBar != null)
-        {
-            playerHealthBar.maxValue = max;
-            playerHealthBar.value = current;
         }
     }
 }

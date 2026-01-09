@@ -10,51 +10,56 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
-  m_Name: Wave10PreDialogue
+  m_Name: Day3Pre
   m_EditorClassIdentifier: 
   lines:
   - speaker: 2
-    text: Something witty
+    text: '"Day three of this increasingly bizarre arrangement. The programmer has
+      fixed the plumbing and made breakfast. The Queen has stopped flinching when
+      he enters the room. Progress, I suppose, though I use the term loosely."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 1
-    text: Something cute
+    text: '"You made pancakes."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 0
-    text: Something deadpan
+    text: '"Yeah. You mentioned you liked them. Blueberry okay?"'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 1
-    text: Something sarcastic cute
+    text: '"I... when did I mention that?"'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 0
-    text: Something sarcastic
+    text: '"Uh, yesterday? During dinner?"'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 1
-    text: Something cuter
+    text: '"Oh. Yes. Of course. Thank you."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 0
-    text: Reluctant addimission
+    text: '"You good? You seem distracted."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 1
-    text: Cute victory noises
+    text: '"I am simply... there is much on my mind. The waves grow larger each day."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 0
-    text: Resigned groan
+    text: '"I''ll handle it. That''s what I''m here for."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 1
-    text: Cuteness overload
+    text: '"Yes. I know you will."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   - speaker: 2
-    text: '"Something witty'
+    text: '"Note the Queen''s momentary confusion. She does not remember mentioning
+      her breakfast preferences, because in this particular timeline, she hasn''t.
+      The programmer, however, remembers quite clearly. This is where things get
+      delightfully complicated."'
     voiceClip: {fileID: 0}
     charactersPerSecond: 30
   choices: []

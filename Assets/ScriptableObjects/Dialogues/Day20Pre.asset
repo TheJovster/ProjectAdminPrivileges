@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day20Pre
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"Day twenty. Statistically speaking, this is farther than they have ever
+      made it. The programmer is checking his equipment with unusual focus. The Queen
+      is watching him with an expression I can only describe as ''fierce determination.''
+      Something has shifted."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"This is it'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Yeah. This is the one. I can feel it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You have said that before."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"I know. But this time is different. You remember. That changes everything."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"And if we fail?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Then we try again. But we won''t fail."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You cannot know that."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"No. But I believe it. And that has to be enough."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I am not going to lose you. Not this time. Not ever."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Same goes. We break this thing together'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"Together."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Always."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: '"They are holding hands. It is sickeningly sweet. I would mock them, but
+      honestly, after eighteen loops of watching these two people fight and die and
+      fall in love over and over again, I think they have earned a little sentimentality.
+      Good luck, you ridiculous humans. Try not to die this time."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

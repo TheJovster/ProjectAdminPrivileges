@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day10Post
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"The programmer was nearly killed this evening. A near miss with something
+      large, angry, and equipped with far too many teeth. The Queen witnessed the
+      entire event. She has not stopped shaking."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"Don''t you dare die on me. Don''t you dare."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Hey, I''m okay. I''m right here."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: "\"You are NOT okay! That thing nearly\u2014\""
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"But it didn''t. I''m fine. Look at me."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: "\"This is not sustainable. Every night you go out there and every night
+      I watch and wait and pray that you will come back and I cannot\u2014\""
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"I will always come back to you."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You cannot know that!"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: ',"Yes, I can."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"How? How can you possibly know that?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Because I have died for you seventeen times and I will die for you seventeen
+      more if that is what it takes. Because losing you is not an option. Because
+      I love you."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"...What?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"I love you. I have loved you through every loop, every reset, every timeline.
+      And I will keep loving you until we break this thing."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: '"Well. That was unexpected. By which I mean it was entirely expected,
+      but the timing is appalling. Confessing your love during a mental breakdown
+      is hardly romantic. Then again, I suppose when you are trapped in a temporal
+      anomaly, you take what you can get."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

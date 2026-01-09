@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day5Pre
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"We have now entered what I call the ''domestic phase.'' They have established
+      routines. They eat meals together. The Queen reads while he maintains his equipment.
+      It''s all terribly mundane, if you ignore the temporal paradox and the nightly
+      demonic invasions."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"So, what''re you reading?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"Chronicles of Starlit Hearts. It is... a romance novel."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Any good?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"It is utterly ridiculous and I am completely invested. The protagonist
+      just realized she has been in love with her bodyguard for three entire volumes."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Huh. Took her that long?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"She is remarkably oblivious for someone of her intelligence. It is infuriating."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Some people just don''t see what''s right in front of them."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"Indeed. ...Have we had this conversation before?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Maybe in another life."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"That is a strange thing to say."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: '"The irony, of course, is that they have had this exact conversation seventeen
+      times previously. She never remembers. He always does. I suspect this is what
+      you humans call ''tragic.''"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

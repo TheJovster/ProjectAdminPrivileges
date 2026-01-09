@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day10Pre
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"Day ten. The Queen has begun experiencing what she describes as ''dreams.''
+      They are not dreams. They are memories bleeding through from previous iterations.
+      The programmer knows this. She does not. It is absolutely agonizing to watch."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I keep having the strangest dreams about you."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Yeah?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"We are... together. In a castle. This castle. But different. Softer.
+      There is sunlight. We are happy."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Sounds nice."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"It feels real. More real than reality. Do you ever feel as though we
+      have known each other far longer than we have?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Every single day."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I trust you. I do not know why'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"You can trust me. I promise."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I know. That is what frightens me. I should not know this'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"It''s okay. I''m not going anywhere."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You cannot promise that. No one can promise that."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Watch me."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: ',"He has promised this seventeen times across seventeen loops. He has
+      kept his promise zero times, because the universe has a wicked sense of humor.
+      But full marks for determination, I suppose."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day1Pre
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"And here we observe a most peculiar phenomenon: a heavily armed programmer
+      from another dimension, standing in a medieval throne room, attempting to explain
+      why he won''t commit the murder he was explicitly summoned to perform. Nature
+      is truly fascinating."
+
+'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"So... they told me to kill you. I''m not going to do that."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I beg your pardon?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Velmora sent me. ''Slay the Evil Queen'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"You are telling me that the Holy Kingdom summoned you to assassinate
+      me, and you have simply... declined?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Yeah. Seemed like bullshit. You don''t look evil. You look tired."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"...I see. And what precisely do you intend to do now?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Defend this place, I guess. Those demon things outside? I''ll handle
+      them. You just... do your thing."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"This is highly irregular."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Welcome to my life. You get used to it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: ',"The Queen, understandably bewildered, has just encountered possibly
+      the only human being in history to receive divine orders and respond with ''nah.''
+      The programmer, meanwhile, seems utterly unbothered by the cosmic implications.
+      Truly, we live in remarkable times."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}

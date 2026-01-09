@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171d91e8e101bd4c990bfe356cb2d53, type: 3}
+  m_Name: Day1Post
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 2
+    text: '"Having just witnessed a man with inexplicable future weaponry reduce
+      thirty-seven hostile entities to component atoms, our young monarch is experiencing
+      what behavioral scientists call ''processing.'' The programmer is reloading
+      despite having plenty of ammunition remaining. Old habits, it seems, die hard."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"That was... effective."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Thanks. You okay? Not hurt?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"I am unharmed. Your concern is noted."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Good. They''ll be back tomorrow. Probably more of them."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"And you intend to remain? To continue this?"'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Yeah. Someone''s gotta do it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 1
+    text: '"...Very well. There are guest quarters in the east wing."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 0
+    text: '"Appreciate it."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  - speaker: 2
+    text: '"A stunning display of emotional restraint from both parties. The Queen
+      has just offered accommodation to her would-be assassin. The programmer has
+      accepted as though this were a perfectly normal Tuesday. I suspect neither
+      of them has proper social training."'
+    voiceClip: {fileID: 0}
+    charactersPerSecond: 30
+  choices: []
+  nextDialogue: {fileID: 0}
