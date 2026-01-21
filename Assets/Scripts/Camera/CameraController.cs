@@ -1,4 +1,5 @@
 using UnityEngine;
+using ProjectAdminPrivileges.Utility;
 
 namespace ProjectAdminPrivileges.PlayerCharacter
 {
@@ -57,25 +58,25 @@ namespace ProjectAdminPrivileges.PlayerCharacter
             Vector3 lookAheadOffset = Vector3.zero;
             if (enableLookAhead && lookAheadActive)
             {
-                currentLookAheadWeight = Mathf.Lerp(currentLookAheadWeight, 1f, lookAheadSmoothSpeed * Time.deltaTime);
+                currentLookAheadWeight = Interpolation.Lerp(currentLookAheadWeight, 1f, lookAheadSmoothSpeed, Time.deltaTime);
 
                 Vector3 aimDirection = new Vector3(target.forward.x, 0f, target.forward.z).normalized;
                 Vector3 targetLookAhead = aimDirection * lookAheadDistance;
-                currentLookAhead = Vector3.Lerp(currentLookAhead, targetLookAhead, lookAheadSmoothSpeed * Time.deltaTime);
+                currentLookAhead = Interpolation.Lerp(currentLookAhead, targetLookAhead, lookAheadSmoothSpeed, Time.deltaTime);
 
                 lookAheadOffset = currentLookAhead * currentLookAheadWeight;
             }
             else
             {
-                currentLookAheadWeight = Mathf.Lerp(currentLookAheadWeight, 0f, lookAheadSmoothSpeed * Time.deltaTime);
-                currentLookAhead = Vector3.Lerp(currentLookAhead, Vector3.zero, lookAheadSmoothSpeed * Time.deltaTime);
+                currentLookAheadWeight = Interpolation.Lerp(currentLookAheadWeight, 0f, lookAheadSmoothSpeed, Time.deltaTime);
+                currentLookAhead = Interpolation.Lerp(currentLookAhead, Vector3.zero, lookAheadSmoothSpeed, Time.deltaTime);
             }
 
             Vector3 desiredPosition = basePosition + lookAheadOffset;
 
             if (smoothFollow)
             {
-                transform.position = Vector3.Lerp(transform.position, desiredPosition, positionSmoothSpeed * Time.deltaTime);
+                transform.position = Interpolation.Lerp(transform.position, desiredPosition, positionSmoothSpeed,Time.deltaTime);
             }
             else
             {
@@ -120,7 +121,7 @@ namespace ProjectAdminPrivileges.PlayerCharacter
 
                 transform.position += shakeOffset;
 
-                shakeIntensity = Mathf.Lerp(shakeIntensity, 0f, shakeDecay * Time.deltaTime);
+                shakeIntensity = Interpolation.Lerp(shakeIntensity, 0f, shakeDecay, Time.deltaTime);
             }
             else
             {
@@ -162,7 +163,6 @@ namespace ProjectAdminPrivileges.PlayerCharacter
             yaw = newYaw % 360f;
             SetFixedRotation();
         }
-
 
         public bool IsLookAheadActive()
         {

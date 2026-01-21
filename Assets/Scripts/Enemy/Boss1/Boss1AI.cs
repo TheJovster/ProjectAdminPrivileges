@@ -10,26 +10,37 @@ namespace ProjectAdminPrivileges.Enemy.Boss
     public class Boss1AI : MonoBehaviour
     {
         private NavMeshAgent navMeshAgent;
+        private float baseSpeed;
 
         private void Awake()
         {
-            if(navMeshAgent == null) 
+            if (navMeshAgent == null)
             {
                 navMeshAgent = GetComponent<NavMeshAgent>();
             }
+            baseSpeed = navMeshAgent.speed;
         }
 
         public void MoveToTarget(Vector3 targetPosition)
         {
-            if(navMeshAgent != null) 
+            if (navMeshAgent != null)
             {
+                navMeshAgent.SetDestination(targetPosition);
+            }
+        }
+
+        public void MoveToTarget(Vector3 targetPosition, float speedMultiplier)
+        {
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.speed = baseSpeed * speedMultiplier;
                 navMeshAgent.SetDestination(targetPosition);
             }
         }
 
         public void StopMovement()
         {
-            if(navMeshAgent != null) 
+            if (navMeshAgent != null)
             {
                 navMeshAgent.ResetPath();
             }
@@ -37,10 +48,31 @@ namespace ProjectAdminPrivileges.Enemy.Boss
 
         public void StopImmediate()
         {
-            if(navMeshAgent != null) 
+            if (navMeshAgent != null)
             {
                 navMeshAgent.isStopped = true;
             }
+        }
+
+        public void ResumeMovement()
+        {
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.isStopped = false;
+            }
+        }
+
+        public void ResetSpeed()
+        {
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.speed = baseSpeed;
+            }
+        }
+
+        public float DistanceToTarget(Vector3 targetPosition)
+        {
+            return Vector3.Distance(transform.position, targetPosition);
         }
     }
 }

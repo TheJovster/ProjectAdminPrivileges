@@ -2,6 +2,7 @@ using UnityEngine;
 using ProjectAdminPrivileges.Combat.Weapons;
 using ProjectAdminPrivileges.Audio;
 using ProjectAdminPrivileges.Abilities;
+using System.Collections;
 
 namespace ProjectAdminPrivileges.PlayerCharacter
 {
@@ -240,6 +241,32 @@ namespace ProjectAdminPrivileges.PlayerCharacter
             }
 
             return Vector3.zero;
+        }
+
+        public void ApplyKnockback(Vector3 position, float distance) 
+        {
+            Vector3 direction = (transform.position - position).normalized;
+            direction.y = 0;
+            StartCoroutine(KnockbackRoutine(direction, distance));
+
+        }
+
+        public IEnumerator KnockbackRoutine(Vector3 direction, float distance) 
+        {
+            playerMotor.SetCanMove(false);
+
+            float elapsed = 0f;
+            float duration = 0.5f;
+            float speed = distance / duration;
+
+            while (elapsed < duration) 
+            {
+                playerMotor.MoveRaw(direction * speed * Time.deltaTime);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            playerMotor.SetCanMove(true);
         }
 
         private void TryFireWeapon()

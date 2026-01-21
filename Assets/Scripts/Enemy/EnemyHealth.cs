@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public int MaxHealth => maxHealth; // Expose for death handler
     public event Action OnDeath;
 
+    public int CurrentHealth => currentHealth; // Expose for UI or other systems
+
     private void Awake()
     {
         controller = GetComponent<EnemyController>();

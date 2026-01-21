@@ -20,6 +20,7 @@ namespace ProjectAdminPrivileges.PlayerCharacter
         [SerializeField] private float deceleration = 10.0f;*/
         //[SerializeField] private float turnSpeed = 720f;
         private Vector3 currentVelocity = Vector3.zero;
+        private bool canMove = true;
 
         //exposed variables
         public Vector3 CurrentVelocity => characterController.velocity;
@@ -32,14 +33,9 @@ namespace ProjectAdminPrivileges.PlayerCharacter
             }
         }
 
-
-        private void Update()
-        {
-
-        }
-
         public void Move(Vector2 movementInput)
         {
+            if (!canMove) return;
             // Build direction relative to the player
             Vector3 right = transform.right * movementInput.x;
             Vector3 forward = transform.forward * movementInput.y;
@@ -48,6 +44,16 @@ namespace ProjectAdminPrivileges.PlayerCharacter
 
             characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
             
+        }
+
+        public void MoveRaw(Vector3 movement)
+        {
+            characterController.Move(movement);
+        }
+
+        public void SetCanMove(bool value)
+        {
+            canMove = value;
         }
     }
 }
