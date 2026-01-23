@@ -965,8 +965,10 @@ GameObject:
   - component: {fileID: 7289244351547648809}
   - component: {fileID: 1378950456748287902}
   - component: {fileID: 6178190720640584771}
+  - component: {fileID: 9184120682166467767}
+  - component: {fileID: 7064949010557660899}
   m_Layer: 7
-  m_Name: Bathlazar
+  m_Name: Balthazar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1009,7 +1011,7 @@ Animator:
   m_GameObject: {fileID: 2953186842214232241}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a50cd06a0668d1a418d586a2944e3ed5, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fb29cad2ae42b247b5b89902c337f9c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1125,6 +1127,36 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &9184120682166467767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953186842214232241}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fd5d406a5c4aa4cafab1c49e984995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  queenTransform: {fileID: 0}
+  targetUpdateInterval: 0.5
+  footstepSound: {fileID: 0}
+  stepFrequency: 2
+  velocityThreshold: 0.3
+--- !u!114 &7064949010557660899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953186842214232241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d7e891a78ff624ba8424102b2eed2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3063526552365444945
 GameObject:
   m_ObjectHideFlags: 0

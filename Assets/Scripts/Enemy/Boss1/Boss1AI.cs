@@ -12,6 +12,8 @@ namespace ProjectAdminPrivileges.Enemy.Boss
         private NavMeshAgent navMeshAgent;
         private float baseSpeed;
 
+        public NavMeshAgent NavMeshAgent => navMeshAgent;
+
         private void Awake()
         {
             if (navMeshAgent == null)
@@ -73,6 +75,15 @@ namespace ProjectAdminPrivileges.Enemy.Boss
         public float DistanceToTarget(Vector3 targetPosition)
         {
             return Vector3.Distance(transform.position, targetPosition);
+        }
+
+        public float GetNormalizedSpeed()
+        {
+            if (navMeshAgent != null && navMeshAgent.speed > 0)
+            {
+                return navMeshAgent.velocity.magnitude / navMeshAgent.speed;
+            }
+            return 0f;
         }
     }
 }

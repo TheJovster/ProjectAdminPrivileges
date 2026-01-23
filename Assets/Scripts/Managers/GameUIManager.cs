@@ -12,6 +12,10 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private PlayerHealth playerHealth; //TODO: Add player health script
 
+    [Header("Boss Health UI")]
+    [SerializeField] private Slider bossHealthBar;
+    [SerializeField] private EnemyHealth bossHealth;
+
     [Header("References")]
     [SerializeField] private QueenHealth queenHealth;
     [SerializeField] private PlayerWeaponHandler weaponHandler;
@@ -56,6 +60,12 @@ public class GameUIManager : MonoBehaviour
             UpdatePlayerHealth(playerHealth.CurrentHealth, playerHealth.MaxHealth);
         }
 
+        if(bossHealthBar != null && bossHealthBar.gameObject.activeInHierarchy) 
+        {
+            //add the boss health subscription
+            //update BossHealth
+        }
+
     }
 
     private void Update()
@@ -88,6 +98,15 @@ public class GameUIManager : MonoBehaviour
         {
             playerHealthBar.maxValue = max;
             playerHealthBar.value = current;
+        }
+    }
+
+    private void UpdateBossHealth(int current, int max)
+    {
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.maxValue = max;
+            bossHealthBar.value = current;
         }
     }
 
@@ -127,6 +146,14 @@ public class GameUIManager : MonoBehaviour
             abilityCooldownText.text = currentAbility.IsOnCooldown
                 ? $"{Mathf.CeilToInt(currentAbility.CooldownRemaining)}s"
                 : "READY";
+        }
+    }
+
+    public void SetBossHealthBar(bool value)
+    {
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.gameObject.SetActive(value);
         }
     }
 

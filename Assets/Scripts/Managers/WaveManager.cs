@@ -42,6 +42,13 @@ public class WaveManager : MonoBehaviour
     private int enemiesToSpawn = 0;
     private float spawnTimer = 0f;
 
+    [Header("Boss Settings")]
+    [SerializeField] private GameObject boss1Prefab;
+    [SerializeField] private GameObject boss2Prefab;
+    [SerializeField] private Transform bossSpawnPoint;
+    [SerializeField] private int[] bossWaves = new int[] { 10 };
+    private bool isBossWave = false;
+
     private void Start()
     {
         if (enemyPrefab == null)
@@ -109,6 +116,9 @@ public class WaveManager : MonoBehaviour
             uiManager.UpdateWave(currentWave);
         }
 
+        // Check if this is a boss wave
+        isBossWave = IsBossWave(currentWave);
+
         // FIXED: Always check for pre-wave dialogue, but transition to Shopping regardless
         if (ShouldShowDialogue(currentWave))
         {
@@ -136,7 +146,14 @@ public class WaveManager : MonoBehaviour
 
     private void UpdateSpawningState()
     {
-        if (enemiesToSpawn > 0)
+        if (isBossWave) 
+        {
+            SpawnBoss();
+            TransitionToState(WaveState.Evening);
+        }
+
+
+        else if (!isBossWave && enemiesToSpawn > 0)
         {
             spawnTimer -= Time.deltaTime;
 
@@ -348,6 +365,54 @@ public class WaveManager : MonoBehaviour
 
         return null;
     }
+
+    private bool IsBossWave(int wave)
+    {
+        foreach (int bossWave in bossWaves)
+        {
+            if (wave == bossWave)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void SpawnBoss()
+    {
+        if(bossSpawnPoint == null)
+        {
+            Debug.LogWarning("[WaveManager] No boss spawn point assigned!");
+            return;
+        }
+
+        GameObject bossPrefabToSpawn = boss1Prefab; // Default to Boss1 -> will extend the logic later
+        Transform spawnPoint = bossSpawnPoint != null ? bossSpawnPoint : spawnPoints[0];
+
+        GameObject boss = Instantiate(bossPrefabToSpawn, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive = 1;
+        EnemyHealth bossHealth = boss.GetComponent<EnemyHealth>();
+        if (bossHealth != null)
+        {
+            bossHealth.OnDeath += () =>
+            {
+                enemiesAlive--;
+
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.RegisterKill();
+                }
+
+                if (ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance != null)
+                {
+                    ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance.OnKill();
+                }
+            };
+        }
+
+        Debug.Log($"[WaveManager] Boss spawned for wave {currentWave}!");
+    }
+
 
     private void OnGameOver()
     {

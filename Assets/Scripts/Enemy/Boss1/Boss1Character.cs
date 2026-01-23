@@ -31,6 +31,7 @@ namespace ProjectAdminPrivileges.Enemy.Boss
         private Boss1AI ai;
         private Transform playerTransform;
         private PlayerController playerController;
+        private Boss1AnimatorController animatorController;
 
         [Header("Combat Settings")]
         [SerializeField] private float normalSpeed = 3.5f;
@@ -81,6 +82,11 @@ namespace ProjectAdminPrivileges.Enemy.Boss
                 spawnObj.transform.SetParent(transform);
                 spawnObj.transform.localPosition = Vector3.up * 1.5f;
                 projectileSpawnPoint = spawnObj.transform;
+            }
+
+            if(animatorController == null)
+            {
+                animatorController = GetComponent<Boss1AnimatorController>();
             }
         }
 
@@ -201,6 +207,11 @@ namespace ProjectAdminPrivileges.Enemy.Boss
             {
                 playerController.ApplyKnockback(transform.position, meleeKnockbackDistance);
             }
+
+            if (animatorController != null)
+            {
+                animatorController.TriggerMeleeAttack();
+            }
         }
 
         private IEnumerator MeleePauseRoutine()
@@ -211,6 +222,11 @@ namespace ProjectAdminPrivileges.Enemy.Boss
 
         private IEnumerator RangedAttackRoutine()
         {
+            if (animatorController != null)
+            {
+                animatorController.TriggerCast();
+            }
+
             yield return new WaitForSeconds(1.5f); // Longer cast time - boss stands still
 
             // Spawn projectiles
