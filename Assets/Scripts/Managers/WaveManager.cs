@@ -394,6 +394,12 @@ public class WaveManager : MonoBehaviour
         EnemyHealth bossHealth = boss.GetComponent<EnemyHealth>();
         if (bossHealth != null)
         {
+            if (uiManager != null)
+            {
+                uiManager.SetBossHealthBar(true);
+                uiManager.SubscribeToBossHealth(bossHealth);
+            }
+
             bossHealth.OnDeath += () =>
             {
                 enemiesAlive--;
@@ -407,6 +413,13 @@ public class WaveManager : MonoBehaviour
                 {
                     ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance.OnKill();
                 }
+
+                if (uiManager != null)
+                {
+                    uiManager.SetBossHealthBar(false);
+                    uiManager.UnsubscribeFromBossHealth(bossHealth); // NEW METHOD
+                }
+
             };
         }
 

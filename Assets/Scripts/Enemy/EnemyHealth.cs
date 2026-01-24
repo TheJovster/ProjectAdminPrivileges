@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public bool IsAlive => currentHealth > 0;
     public int MaxHealth => maxHealth; // Expose for death handler
     public event Action OnDeath;
+    public event Action OnHealthChanged;
 
     public int CurrentHealth => currentHealth; // Expose for UI or other systems
 
@@ -31,10 +32,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         controller = GetComponent<EnemyController>();
         deathHandler = GetComponent<EnemyDeathHandler>(); // Optional component
         capsuleColider = GetComponent<Collider>();
-    }
 
-    private void Start()
-    {
         currentHealth = maxHealth;
     }
 
@@ -67,6 +65,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
 
         currentHealth -= damageAmount;
+        OnHealthChanged?.Invoke();
 
         // Spawn damage number
         if (DamageNumberSpawner.Instance != null)

@@ -20,6 +20,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private QueenHealth queenHealth;
     [SerializeField] private PlayerWeaponHandler weaponHandler;
     [SerializeField] private AbilityManager abilityManager;
+    private EnemyHealth currentBossHealth;
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI queenHealthText;
@@ -149,12 +150,45 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    public void SubscribeToBossHealth(EnemyHealth bossHealth)
+    {
+        // Unsubscribe from previous boss (if any)
+        if (currentBossHealth != null)
+        {
+            currentBossHealth.OnHealthChanged -= UpdateBossHealthBar;
+        }
+
+        // Subscribe to new boss
+        currentBossHealth = bossHealth;
+        currentBossHealth.OnHealthChanged += UpdateBossHealthBar;
+
+        // Initial update
+        UpdateBossHealthBar();
+    }
+
+    public void UnsubscribeFromBossHealth(EnemyHealth bossHealth)
+    {
+        if (currentBossHealth != null)
+        {
+            currentBossHealth.OnHealthChanged -= UpdateBossHealthBar;
+            currentBossHealth = null;
+        }
+    }
+
     public void SetBossHealthBar(bool value)
     {
         if (bossHealthBar != null)
         {
             bossHealthBar.gameObject.SetActive(value);
         }
+    }
+
+    private void UpdateBossHealthBar()
+    {
+        if (currentBossHealth == null || bossHealthBar == null) { return; }
+
+        bossHealthBar.maxValue = currentBossHealth.MaxHealth;
+        bossHealthBar.value = currentBossHealth.CurrentHealth;
     }
 
     private void OnWeaponChanged(ProjectAdminPrivileges.Combat.Weapons.Weapon weapon)
@@ -164,4 +198,6 @@ public class GameUIManager : MonoBehaviour
             weaponName.text = weapon.GetWeaponData().weaponName;
         }
     }
+
+
 }

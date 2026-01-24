@@ -1606,6 +1606,7 @@ MonoBehaviour:
   showDialogueEveryWave: 0
   dialogueWaves: 0100000003000000050000000a0000000f00000014000000
   currentWaveState: 0
+  currentWave: 9
   boss1Prefab: {fileID: 2953186842214232241, guid: 5d8631f27d739064dbdc9d3bfd3c3506,
     type: 3}
   boss2Prefab: {fileID: 0}
@@ -2230,6 +2231,18 @@ MonoBehaviour:
   invulnerabilityDuration: 0.5
   vignetteImage: {fileID: 0}
   showDebugLogs: 1
+--- !u!114 &1347342512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8103406487898988652, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+    type: 3}
+  m_PrefabInstance: {fileID: 3469721942462715865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1352728595 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 658754447893073883, guid: 4962bb9f39ca22f4faa6675fd9936f78,
@@ -2780,6 +2793,8 @@ MonoBehaviour:
   playerHealthText: {fileID: 1811177310}
   playerHealthBar: {fileID: 1579245883}
   playerHealth: {fileID: 1331326968}
+  bossHealthBar: {fileID: 1347342512}
+  bossHealth: {fileID: 0}
   queenHealth: {fileID: 715533112}
   weaponHandler: {fileID: 332719912}
   abilityManager: {fileID: 1331326967}
@@ -4688,6 +4703,21 @@ PrefabInstance:
     - target: {fileID: 162112551931476665, guid: 4962bb9f39ca22f4faa6675fd9936f78,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871986441444244006, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871986441444244006, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233311676020333333, guid: 4962bb9f39ca22f4faa6675fd9936f78,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3576389925942725314, guid: 4962bb9f39ca22f4faa6675fd9936f78,
