@@ -20,4 +20,10 @@ public class PauseUI : MonoBehaviour
     {
         pausePanel.SetActive(false);
     }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("MainMenuScene");
+    }
 }
