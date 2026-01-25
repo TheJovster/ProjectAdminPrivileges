@@ -192,6 +192,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         currentState = GameState.Playing;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        queenHealth = FindFirstObjectByType<QueenHealth>();
     }
 
     public void RegisterKill()

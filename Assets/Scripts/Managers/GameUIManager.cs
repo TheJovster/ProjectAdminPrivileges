@@ -33,6 +33,9 @@ public class GameUIManager : MonoBehaviour
 
     private void Start()
     {
+        queenHealth = null;
+        queenHealth = FindFirstObjectByType<QueenHealth>();
+
         if (queenHealth != null)
         {
             queenHealth.OnHealthChanged += UpdateQueenHealth;

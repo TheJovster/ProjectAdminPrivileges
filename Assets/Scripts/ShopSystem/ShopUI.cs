@@ -72,7 +72,6 @@ namespace ProjectAdminPrivileges.UI
 
         private void OnDestroy()
         {
-            // Unsubscribe
             if (CreditManager.Instance != null)
             {
                 CreditManager.Instance.OnCreditsChanged -= UpdateCreditsDisplay;

@@ -62,6 +62,7 @@ namespace ProjectAdminPrivileges.ShopSystem
             shopPanel.SetActive(true);
             //shopUI.PopulateShop(weaponItems, abilityItems, consumableItems, buffItems);
             GameManager.Instance.SetGameState(GameManager.GameState.Shopping);
+            shopUI.RefreshUI();
         }
 
         public void CloseShop()
@@ -110,6 +111,7 @@ namespace ProjectAdminPrivileges.ShopSystem
         public void ResetShop()
         {
             purchasedThisRun.Clear();
+            shopUI.RefreshUI();
         }
 
         public bool IsItemPurchased(ShopItem item)
