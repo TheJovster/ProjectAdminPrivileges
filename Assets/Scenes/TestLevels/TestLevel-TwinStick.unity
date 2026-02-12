@@ -617,6 +617,7 @@ MonoBehaviour:
   shopUI: {fileID: 1662834879}
   playerWeaponHandler: {fileID: 332719912}
   abilityManager: {fileID: 1331326967}
+  playerMotor: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

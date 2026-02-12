@@ -48,18 +48,21 @@ public class ArsenalUI : MonoBehaviour
         if (statsTab != null)
             statsTab.onClick.AddListener(() => SetFilter(UnlockType.StatUpgrade));
 
-        // Subscribe to IA XP changes
-        if (IAExperienceManager.Instance != null)
-        {
-            IAExperienceManager.Instance.OnIAXPChanged += OnIAXPChanged;
-        }
-
         // Start hidden
         if (arsenalPanel != null)
             arsenalPanel.SetActive(false);
     }
 
-    private void OnDestroy()
+    private void OnEnable()
+    {
+        // Subscribe here instead of Awake — survives DDOL scene reloads cleanly
+        if (IAExperienceManager.Instance != null)
+        {
+            IAExperienceManager.Instance.OnIAXPChanged += OnIAXPChanged;
+        }
+    }
+
+    private void OnDisable()
     {
         if (IAExperienceManager.Instance != null)
         {

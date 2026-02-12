@@ -152,14 +152,13 @@ public class ArsenalUnlockButton : MonoBehaviour
         // Attempt purchase
         ArsenalManager.Instance.PurchaseUnlock(currentUnlock);
 
-        // Refresh this button
-        RefreshButton();
-
-        // Tell Arsenal UI to refresh all buttons (in case other unlocks became affordable)
+        // Repopulate the entire grid — rebuilds all buttons with fresh state.
+        // This is more reliable than just refreshing individual buttons because
+        // it catches sort order changes and newly affordable items.
         ArsenalUI arsenalUI = GetComponentInParent<ArsenalUI>();
         if (arsenalUI != null)
         {
-            arsenalUI.RefreshAllButtons();
+            arsenalUI.OpenArsenal(); // Repopulates grid + updates IAXP display
         }
     }
 }

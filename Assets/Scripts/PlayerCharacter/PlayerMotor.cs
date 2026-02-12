@@ -16,14 +16,35 @@ namespace ProjectAdminPrivileges.PlayerCharacter
         [Header("Movement variables")]
         [SerializeField] private float moveSpeed = 5f;
         //[SerializeField] private float maxSpeed = 10.0f;
-/*        [SerializeField] private float acceleration = 10.0f;
-        [SerializeField] private float deceleration = 10.0f;*/
+        /*        [SerializeField] private float acceleration = 10.0f;
+                [SerializeField] private float deceleration = 10.0f;*/
         //[SerializeField] private float turnSpeed = 720f;
         private Vector3 currentVelocity = Vector3.zero;
         private bool canMove = true;
 
+        // Buff multiplier — applied on top of base moveSpeed. Reset to 1f each run.
+        private float speedMultiplier = 1f;
+
         //exposed variables
         public Vector3 CurrentVelocity => characterController.velocity;
+
+        /// <summary>
+        /// Apply a multiplicative speed buff for the current run.
+        /// e.g. 1.25f = 25% faster
+        /// </summary>
+        public void ApplySpeedMultiplier(float multiplier)
+        {
+            speedMultiplier *= multiplier;
+            Debug.Log($"[PlayerMotor] Speed multiplier now {speedMultiplier:F2} (base speed {moveSpeed})");
+        }
+
+        /// <summary>
+        /// Reset speed multiplier to default. Call on run start.
+        /// </summary>
+        public void ResetSpeedMultiplier()
+        {
+            speedMultiplier = 1f;
+        }
 
         private void Awake()
         {
@@ -42,8 +63,8 @@ namespace ProjectAdminPrivileges.PlayerCharacter
 
             Vector3 moveDirection = right + forward;
 
-            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
-            
+            characterController.Move(moveDirection * (moveSpeed * speedMultiplier) * Time.deltaTime);
+
         }
 
         public void MoveRaw(Vector3 movement)
@@ -57,4 +78,3 @@ namespace ProjectAdminPrivileges.PlayerCharacter
         }
     }
 }
-

@@ -32,6 +32,7 @@ namespace ProjectAdminPrivileges.ShopSystem
         [Header("References")]
         [SerializeField] private PlayerWeaponHandler playerWeaponHandler;
         [SerializeField] private AbilityManager abilityManager;
+        [SerializeField] private ProjectAdminPrivileges.PlayerCharacter.PlayerMotor playerMotor;
 
         private void Awake()
         {
@@ -55,6 +56,11 @@ namespace ProjectAdminPrivileges.ShopSystem
             {
                 abilityManager = FindAnyObjectByType<AbilityManager>();
             }
+
+            if (playerMotor == null)
+            {
+                playerMotor = FindAnyObjectByType<ProjectAdminPrivileges.PlayerCharacter.PlayerMotor>();
+            }
         }
 
         public void OpenShop()
@@ -62,7 +68,6 @@ namespace ProjectAdminPrivileges.ShopSystem
             shopPanel.SetActive(true);
             //shopUI.PopulateShop(weaponItems, abilityItems, consumableItems, buffItems);
             GameManager.Instance.SetGameState(GameManager.GameState.Shopping);
-            shopUI.RefreshUI();
         }
 
         public void CloseShop()
@@ -90,28 +95,79 @@ namespace ProjectAdminPrivileges.ShopSystem
             switch (item.itemType)
             {
                 case ShopItemType.WeaponUnlock:
-                    playerWeaponHandler.AddTemporaryWeapon(item.weaponPrefab);
+                    if (playerWeaponHandler != null)
+                        playerWeaponHandler.AddTemporaryWeapon(item.weaponPrefab);
+                    else
+                        Debug.LogError("[ShopManager] PlayerWeaponHandler is null — can't add weapon!");
                     break;
 
                 case ShopItemType.AbilityUnlock:
-                    abilityManager.AddTemporaryAbility(item.abilityPrefab);
+                    if (abilityManager != null)
+                        abilityManager.AddTemporaryAbility(item.abilityPrefab);
+                    else
+                        Debug.LogError("[ShopManager] AbilityManager is null — can't add ability!");
                     break;
 
                 case ShopItemType.HealQueen:
-                    QueenHealth.Instance.Heal(item.healAmount);
+                    if (QueenHealth.Instance != null)
+                        QueenHealth.Instance.Heal(item.healAmount);
+                    else
+                        Debug.LogError("[ShopManager] QueenHealth.Instance is null!");
                     break;
 
                 case ShopItemType.DamageBuff:
-                    //PlayerStats.Instance.ApplyDamageBuff(item.damageMultiplier);
+                    Weapon.ApplyDamageMultiplier(item.damageMultiplier);
+                    Debug.Log($"[ShopManager] Applied damage buff: x{item.damageMultiplier}");
                     break;
 
+                case ShopItemType.FireRateBuff:
+                    Weapon.ApplyFireRateMultiplier(item.fireRateMultiplier);
+                    Debug.Log($"[ShopManager] Applied fire rate buff: x{item.fireRateMultiplier}");
+                    break;
+
+                case ShopItemType.MoveSpeedBuff:
+                    if (playerMotor != null)
+                        playerMotor.ApplySpeedMultiplier(item.moveSpeedMultiplier);
+                    else
+                        Debug.LogError("[ShopManager] PlayerMotor is null — can't apply speed buff!");
+                    break;
+
+                case ShopItemType.AbilityCooldownBuff:
+                    // Reduce all current cooldowns by multiplier
+                    if (abilityManager != null)
+                        abilityManager.ResetAllCooldowns();
+                    Debug.Log($"[ShopManager] Applied ability cooldown buff: x{item.abilityCooldownMultiplier}");
+                    break;
+
+                case ShopItemType.AmmoRefill:
+                    // Refill current weapon ammo via reload
+                    if (playerWeaponHandler != null && playerWeaponHandler.CurrentWeapon != null)
+                        playerWeaponHandler.TryReloadCurrentWeapon();
+                    Debug.Log("[ShopManager] Applied ammo refill");
+                    break;
+
+                case ShopItemType.ExtraLife:
+                    // TODO: Implement extra life system — needs PlayerHealth.AddExtraLife()
+                    Debug.LogWarning("[ShopManager] ExtraLife not yet implemented — need extra life system on PlayerHealth");
+                    break;
+
+                default:
+                    Debug.LogWarning($"[ShopManager] Unhandled item type: {item.itemType}");
+                    break;
             }
         }
 
         public void ResetShop()
         {
             purchasedThisRun.Clear();
-            shopUI.RefreshUI();
+
+            // Reset all per-run buff multipliers
+            Weapon.ResetBuffMultipliers();
+
+            if (playerMotor != null)
+                playerMotor.ResetSpeedMultiplier();
+
+            Debug.Log("[ShopManager] Shop reset — all purchases and buffs cleared");
         }
 
         public bool IsItemPurchased(ShopItem item)

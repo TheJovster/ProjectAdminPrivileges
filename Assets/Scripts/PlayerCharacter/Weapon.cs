@@ -29,6 +29,37 @@ namespace ProjectAdminPrivileges.Combat.Weapons
         private Coroutine reloadCoroutine;
         private PlayerAnimatorController animController;
 
+        // Static buff multipliers — shared across all weapons, reset each run
+        private static float damageMultiplier = 1f;
+        private static float fireRateMultiplier = 1f;
+
+        /// <summary>
+        /// Apply a multiplicative damage buff for the current run. Affects ALL weapons.
+        /// </summary>
+        public static void ApplyDamageMultiplier(float multiplier)
+        {
+            damageMultiplier *= multiplier;
+            Debug.Log($"[Weapon] Global damage multiplier now {damageMultiplier:F2}");
+        }
+
+        /// <summary>
+        /// Apply a multiplicative fire rate buff for the current run. Affects ALL weapons.
+        /// </summary>
+        public static void ApplyFireRateMultiplier(float multiplier)
+        {
+            fireRateMultiplier *= multiplier;
+            Debug.Log($"[Weapon] Global fire rate multiplier now {fireRateMultiplier:F2}");
+        }
+
+        /// <summary>
+        /// Reset all buff multipliers. Call on run start.
+        /// </summary>
+        public static void ResetBuffMultipliers()
+        {
+            damageMultiplier = 1f;
+            fireRateMultiplier = 1f;
+        }
+
         public float TimeSinceLastShot => timeSinceLastShot;
         public int CurrentAmmoInMag => currentAmmoInMag;
         public WeaponData GetWeaponData() => weaponData;
@@ -58,7 +89,7 @@ namespace ProjectAdminPrivileges.Combat.Weapons
         public bool TryFireWeapon(bool buttonHeld, bool buttonTriggered)
         {
             if (currentAmmoInMag <= 0) return false;
-            if (Time.time < timeSinceLastShot + (1f / weaponData.fireRate)) return false;
+            if (Time.time < timeSinceLastShot + (1f / (weaponData.fireRate * fireRateMultiplier))) return false;
             if (!weaponData.isAutomatic && !buttonTriggered) return false;
             if (weaponData.isAutomatic && !buttonHeld) return false;
 
@@ -83,7 +114,7 @@ namespace ProjectAdminPrivileges.Combat.Weapons
                     trail.SetWidth(weaponData.tracerStartWidth, weaponData.tracerEndWidth);
                 }
 
-                projectile.Fire(direction, weaponData.damage);
+                projectile.Fire(direction, Mathf.RoundToInt(weaponData.damage * damageMultiplier));
             }
 
             currentAmmoInMag--;

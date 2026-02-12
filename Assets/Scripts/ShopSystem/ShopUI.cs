@@ -2,10 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using ProjectAdminPrivileges.ShopSystem;
-
 using System.Collections.Generic;
-using ProjectAdminPrivileges.Combat.Weapons;
-using UnityEngine.Rendering;
 
 namespace ProjectAdminPrivileges.UI
 {
@@ -72,6 +69,7 @@ namespace ProjectAdminPrivileges.UI
 
         private void OnDestroy()
         {
+            // Unsubscribe
             if (CreditManager.Instance != null)
             {
                 CreditManager.Instance.OnCreditsChanged -= UpdateCreditsDisplay;
@@ -116,83 +114,19 @@ namespace ProjectAdminPrivileges.UI
         {
             if (ShopManager.Instance == null) return new ShopItem[0];
 
-            ShopItem[] allItems = null;
-
             switch (category)
             {
                 case ShopCategory.Weapons:
-                    allItems = ShopManager.Instance.WeaponItems;
-                    break;
+                    return ShopManager.Instance.WeaponItems ?? new ShopItem[0];
                 case ShopCategory.Abilities:
-                    allItems = ShopManager.Instance.AbilityItems;
-                    break;
+                    return ShopManager.Instance.AbilityItems ?? new ShopItem[0];
                 case ShopCategory.Consumables:
-                    allItems = ShopManager.Instance.ConsumableItems;
-                    break;
+                    return ShopManager.Instance.ConsumableItems ?? new ShopItem[0];
                 case ShopCategory.Buffs:
-                    allItems = ShopManager.Instance.BuffItems;
-                    break;
+                    return ShopManager.Instance.BuffItems ?? new ShopItem[0];
+                default:
+                    return new ShopItem[0];
             }
-
-            if (allItems == null) return new ShopItem[0];
-
-            // NEW: Filter by unlocks
-            return FilterByUnlocks(allItems, category);
-        }
-
-        private ShopItem[] FilterByUnlocks(ShopItem[] items, ShopCategory category)
-        {
-            if (ArsenalManager.Instance == null)
-            {
-                Debug.LogWarning("[ShopUI] ArsenalManager not found - showing all items");
-                return items;
-            }
-
-            List<ShopItem> unlockedItems = new List<ShopItem>();
-
-            foreach (ShopItem item in items)
-            {
-                bool isUnlocked = false;
-
-                switch (category)
-                {
-                    case ShopCategory.Weapons:
-                        // Check if weapon is unlocked
-                        if (item.itemType == ShopItemType.WeaponUnlock && item.weaponPrefab != null)
-                        {
-                            // Need to match prefab to unlock ID - we'll need to add this to ShopItem
-                            isUnlocked = IsWeaponUnlocked(item);
-                        }
-                        else
-                        {
-                            isUnlocked = true; // Non-weapon items always shown
-                        }
-                        break;
-
-                    case ShopCategory.Abilities:
-                        if (item.itemType == ShopItemType.AbilityUnlock && item.abilityPrefab != null)
-                        {
-                            isUnlocked = IsAbilityUnlocked(item);
-                        }
-                        else
-                        {
-                            isUnlocked = true;
-                        }
-                        break;
-
-                    case ShopCategory.Consumables:
-                    case ShopCategory.Buffs:
-                        isUnlocked = true; // Consumables/buffs always available
-                        break;
-                }
-
-                if (isUnlocked)
-                {
-                    unlockedItems.Add(item);
-                }
-            }
-
-            return unlockedItems.ToArray();
         }
 
         private void CreateItemButton(ShopItem item)
@@ -261,38 +195,5 @@ namespace ProjectAdminPrivileges.UI
             }
         }
 
-        private bool IsWeaponUnlocked(ShopItem item)
-        {
-            if (ArsenalManager.Instance == null) // <-- ADD THIS
-            {
-                Debug.LogError("[ShopUI] ArsenalManager.Instance is NULL!");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(item.requiredUnlockID))
-            {
-                Debug.LogWarning($"[ShopUI] Weapon item '{item.itemName}' has no requiredUnlockID set!");
-                return false;
-            }
-
-            return ArsenalManager.Instance.IsUnlocked(item.requiredUnlockID);
-        }
-
-        private bool IsAbilityUnlocked(ShopItem item)
-        {
-            if (ArsenalManager.Instance == null) // <-- ADD THIS
-            {
-                Debug.LogError("[ShopUI] ArsenalManager.Instance is NULL!");
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(item.requiredUnlockID))
-            {
-                Debug.LogWarning($"[ShopUI] Ability item '{item.itemName}' has no requiredUnlockID set!");
-                return false;
-            }
-
-            return ArsenalManager.Instance.IsUnlocked(item.requiredUnlockID);
-        }
     }
 }
