@@ -22,6 +22,7 @@ namespace ProjectAdminPrivileges.PlayerCharacter
         [SerializeField] private bool enableLookAhead = true;
         [SerializeField] private float lookAheadDistance = 5f;
         [SerializeField] private float lookAheadSmoothSpeed = 3f;
+        [SerializeField] private float smoothTime = 0.12f;
 
         [Header("Screen Shake")]
         [SerializeField] private float shakeDecay = 5f;
@@ -31,6 +32,8 @@ namespace ProjectAdminPrivileges.PlayerCharacter
         private bool lookAheadActive = false;
 
         private Vector3 shakeOffset;
+        private Vector3 currentVelocity;
+        private Vector3 currentSmoothedLookAhead;
         private float shakeIntensity;
 
         private void Start()
@@ -59,11 +62,9 @@ namespace ProjectAdminPrivileges.PlayerCharacter
             if (enableLookAhead && lookAheadActive)
             {
                 currentLookAheadWeight = Interpolation.Lerp(currentLookAheadWeight, 1f, lookAheadSmoothSpeed, Time.deltaTime);
-
                 Vector3 aimDirection = new Vector3(target.forward.x, 0f, target.forward.z).normalized;
                 Vector3 targetLookAhead = aimDirection * lookAheadDistance;
                 currentLookAhead = Interpolation.Lerp(currentLookAhead, targetLookAhead, lookAheadSmoothSpeed, Time.deltaTime);
-
                 lookAheadOffset = currentLookAhead * currentLookAheadWeight;
             }
             else
@@ -72,16 +73,9 @@ namespace ProjectAdminPrivileges.PlayerCharacter
                 currentLookAhead = Interpolation.Lerp(currentLookAhead, Vector3.zero, lookAheadSmoothSpeed, Time.deltaTime);
             }
 
-            Vector3 desiredPosition = basePosition + lookAheadOffset;
-
-            if (smoothFollow)
-            {
-                transform.position = Interpolation.Lerp(transform.position, desiredPosition, positionSmoothSpeed,Time.deltaTime);
-            }
-            else
-            {
-                transform.position = desiredPosition;
-            }
+            Vector3 smoothedLookAhead = Vector3.SmoothDamp(currentSmoothedLookAhead, lookAheadOffset, ref currentVelocity, smoothTime);
+            currentSmoothedLookAhead = smoothedLookAhead;
+            transform.position = basePosition + smoothedLookAhead;
         }
 
         private void SetFixedRotation()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using ProjectAdminPrivileges.Dialogue;
+using ProjectAdminPrivileges.Audio;
 
 public class WaveManager : MonoBehaviour
 {
@@ -26,10 +27,12 @@ public class WaveManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private QueenHealth queenHealth;
     [SerializeField] private GameUIManager uiManager;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform playerSpawnPoint;
 
     [Header("Dialogue")]
-    [SerializeField] private DialogueData[] preWaveDialogues;  // Dialogue BEFORE wave starts
-    [SerializeField] private DialogueData[] postWaveDialogues; // Dialogue AFTER wave completes
+    [SerializeField] private DialogueData[] preWaveDialogues;
+    [SerializeField] private DialogueData[] postWaveDialogues;
     [SerializeField] private bool showDialogueEveryWave = false;
     [SerializeField] private int[] dialogueWaves = new int[] { 1, 3, 5, 10 };
 
@@ -48,6 +51,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Transform bossSpawnPoint;
     [SerializeField] private int[] bossWaves = new int[] { 10 };
     private bool isBossWave = false;
+
+    // Fade gate for Evening state - prevents re-triggering fade/reset every frame
+    private bool eveningFadeStarted = false;
 
     private void Start()
     {
@@ -102,10 +108,13 @@ public class WaveManager : MonoBehaviour
                 UpdateDelayState();
                 break;
             case WaveState.Wrapup:
-                //wrapup logic
                 break;
         }
     }
+
+    // ─────────────────────────────────────────────
+    // STATE UPDATES (polling only, no one-shot calls)
+    // ─────────────────────────────────────────────
 
     private void UpdateIdleState()
     {
@@ -116,10 +125,8 @@ public class WaveManager : MonoBehaviour
             uiManager.UpdateWave(currentWave);
         }
 
-        // Check if this is a boss wave
         isBossWave = IsBossWave(currentWave);
 
-        // FIXED: Always check for pre-wave dialogue, but transition to Shopping regardless
         if (ShouldShowDialogue(currentWave))
         {
             DialogueData preDialogue = GetPreWaveDialogue(currentWave);
@@ -131,7 +138,6 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        // If no dialogue, go straight to Shopping
         TransitionToState(WaveState.Shopping);
     }
 
@@ -146,14 +152,12 @@ public class WaveManager : MonoBehaviour
 
     private void UpdateSpawningState()
     {
-        if (isBossWave) 
+        if (isBossWave)
         {
             SpawnBoss();
             TransitionToState(WaveState.Evening);
         }
-
-
-        else if (!isBossWave && enemiesToSpawn > 0)
+        else if (enemiesToSpawn > 0)
         {
             spawnTimer -= Time.deltaTime;
 
@@ -172,7 +176,6 @@ public class WaveManager : MonoBehaviour
 
     private void UpdateShoppingState()
     {
-        // Wait for shopping to complete
         if (GameManager.Instance != null &&
             GameManager.Instance.CurrentState != GameManager.GameState.Shopping)
         {
@@ -184,18 +187,31 @@ public class WaveManager : MonoBehaviour
     {
         if (enemiesAlive <= 0)
         {
-            // FIXED: Register wave completion with GameManager
+            // Step 1: Start fade out (once)
+            if (!eveningFadeStarted)
+            {
+                eveningFadeStarted = true;
+                ScreenFader.Instance.FadeOut();
+                return;
+            }
+
+            // Step 2: Wait for fade to finish
+            if (ScreenFader.Instance.IsFading) return;
+
+            // Step 3: Screen is black — do all between-wave work
+            ResetPlayerPosition();
+
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.RegisterWaveComplete(currentWave);
             }
 
-            // FIXED: Track day completion for IA XP calculation
             if (ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance != null)
             {
                 ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance.OnDayComplete();
             }
 
+            // Step 4: Post-wave dialogue or move on
             if (ShouldShowDialogue(currentWave))
             {
                 DialogueData postDialogue = GetPostWaveDialogue(currentWave);
@@ -206,6 +222,7 @@ public class WaveManager : MonoBehaviour
                     return;
                 }
             }
+
             TransitionToState(WaveState.Delay);
         }
     }
@@ -228,6 +245,10 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    // ─────────────────────────────────────────────
+    // STATE TRANSITIONS (one-shot actions go here)
+    // ─────────────────────────────────────────────
+
     private void TransitionToState(WaveState newState)
     {
         Debug.Log($"[WaveManager] {currentWaveState} → {newState}");
@@ -235,8 +256,15 @@ public class WaveManager : MonoBehaviour
 
         switch (newState)
         {
+            case WaveState.Morning:
+                // Fade in so player sees dialogue, switch to dialogue music
+                ScreenFader.Instance.FadeIn();
+                SoundtrackManager.Instance?.PlayDialogueSoundtrack();
+                break;
+
             case WaveState.Shopping:
-                // Open shop
+                // Fade in (safe to call even if already visible — edge guard handles it)
+                ScreenFader.Instance?.FadeIn();
                 if (ProjectAdminPrivileges.ShopSystem.ShopManager.Instance != null)
                 {
                     ProjectAdminPrivileges.ShopSystem.ShopManager.Instance.OpenShop();
@@ -245,9 +273,21 @@ public class WaveManager : MonoBehaviour
                 break;
 
             case WaveState.Spawning:
+                SoundtrackManager.Instance?.PlayCombatSoundtrack();
                 enemiesToSpawn = enemiesPerWave + (currentWave - 1) * 2;
                 spawnTimer = 0f;
                 Debug.Log($"[WaveManager] Spawning {enemiesToSpawn} enemies");
+                break;
+
+            case WaveState.Evening:
+                // Reset the gate so fade logic can run fresh
+                eveningFadeStarted = false;
+                break;
+
+            case WaveState.Night:
+                // Post-wave dialogue — fade in so player sees it, dialogue music
+                ScreenFader.Instance?.FadeIn();
+                SoundtrackManager.Instance?.PlayDialogueSoundtrack();
                 break;
 
             case WaveState.Delay:
@@ -256,6 +296,10 @@ public class WaveManager : MonoBehaviour
                 break;
         }
     }
+
+    // ─────────────────────────────────────────────
+    // SPAWNING
+    // ─────────────────────────────────────────────
 
     private void SpawnEnemy()
     {
@@ -280,7 +324,6 @@ public class WaveManager : MonoBehaviour
                     GameManager.Instance.RegisterKill();
                 }
 
-                // FIXED: Track kill for IA XP calculation
                 if (ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance != null)
                 {
                     ProjectAdminPrivileges.ShopSystem.IAExperienceManager.Instance.OnKill();
@@ -296,97 +339,15 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private bool ShouldShowDialogue(int wave)
-    {
-        if (showDialogueEveryWave)
-        {
-            return true;
-        }
-
-        // Check if this wave is in the dialogueWaves array
-        foreach (int dialogueWave in dialogueWaves)
-        {
-            if (wave == dialogueWave)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private DialogueData GetPreWaveDialogue(int wave)
-    {
-        if (preWaveDialogues == null || preWaveDialogues.Length == 0)
-            return null;
-
-        // Find the INDEX of this wave in dialogueWaves array
-        for (int i = 0; i < dialogueWaves.Length; i++)
-        {
-            if (dialogueWaves[i] == wave)
-            {
-                // Found it - use the SAME INDEX in preWaveDialogues
-                if (i < preWaveDialogues.Length)
-                {
-                    return preWaveDialogues[i];
-                }
-                else
-                {
-                    Debug.LogWarning($"[WaveManager] Wave {wave} in dialogueWaves but no corresponding preWaveDialogues[{i}]");
-                    return null;
-                }
-            }
-        }
-
-        // Wave not in dialogueWaves array
-        return null;
-    }
-
-    private DialogueData GetPostWaveDialogue(int wave)
-    {
-        if (postWaveDialogues == null || postWaveDialogues.Length == 0)
-            return null;
-
-        for (int i = 0; i < dialogueWaves.Length; i++)
-        {
-            if (dialogueWaves[i] == wave)
-            {
-                if (i < postWaveDialogues.Length)
-                {
-                    return postWaveDialogues[i];
-                }
-                else
-                {
-                    Debug.LogWarning($"[WaveManager] Wave {wave} in dialogueWaves but no corresponding postWaveDialogues[{i}]");
-                    return null;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private bool IsBossWave(int wave)
-    {
-        foreach (int bossWave in bossWaves)
-        {
-            if (wave == bossWave)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private void SpawnBoss()
     {
-        if(bossSpawnPoint == null)
+        if (bossSpawnPoint == null)
         {
             Debug.LogWarning("[WaveManager] No boss spawn point assigned!");
             return;
         }
 
-        GameObject bossPrefabToSpawn = boss1Prefab; // Default to Boss1 -> will extend the logic later
+        GameObject bossPrefabToSpawn = boss1Prefab;
         Transform spawnPoint = bossSpawnPoint != null ? bossSpawnPoint : spawnPoints[0];
 
         GameObject boss = Instantiate(bossPrefabToSpawn, spawnPoint.position, spawnPoint.rotation);
@@ -417,15 +378,91 @@ public class WaveManager : MonoBehaviour
                 if (uiManager != null)
                 {
                     uiManager.SetBossHealthBar(false);
-                    uiManager.UnsubscribeFromBossHealth(bossHealth); // NEW METHOD
+                    uiManager.UnsubscribeFromBossHealth(bossHealth);
                 }
-
             };
         }
 
         Debug.Log($"[WaveManager] Boss spawned for wave {currentWave}!");
     }
 
+    // HELPERS
+   
+
+    private void ResetPlayerPosition()
+    {
+        if (playerTransform != null && playerSpawnPoint != null)
+        {
+            // Disable CharacterController if present — it blocks transform.position changes
+            CharacterController cc = playerTransform.GetComponent<CharacterController>();
+            if (cc != null) cc.enabled = false;
+
+            playerTransform.position = playerSpawnPoint.position;
+
+            if (cc != null) cc.enabled = true;
+        }
+    }
+
+    private bool ShouldShowDialogue(int wave)
+    {
+        if (showDialogueEveryWave) return true;
+
+        foreach (int dialogueWave in dialogueWaves)
+        {
+            if (wave == dialogueWave) return true;
+        }
+
+        return false;
+    }
+
+    private DialogueData GetPreWaveDialogue(int wave)
+    {
+        if (preWaveDialogues == null || preWaveDialogues.Length == 0)
+            return null;
+
+        for (int i = 0; i < dialogueWaves.Length; i++)
+        {
+            if (dialogueWaves[i] == wave)
+            {
+                if (i < preWaveDialogues.Length)
+                    return preWaveDialogues[i];
+
+                Debug.LogWarning($"[WaveManager] Wave {wave} in dialogueWaves but no corresponding preWaveDialogues[{i}]");
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    private DialogueData GetPostWaveDialogue(int wave)
+    {
+        if (postWaveDialogues == null || postWaveDialogues.Length == 0)
+            return null;
+
+        for (int i = 0; i < dialogueWaves.Length; i++)
+        {
+            if (dialogueWaves[i] == wave)
+            {
+                if (i < postWaveDialogues.Length)
+                    return postWaveDialogues[i];
+
+                Debug.LogWarning($"[WaveManager] Wave {wave} in dialogueWaves but no corresponding postWaveDialogues[{i}]");
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    private bool IsBossWave(int wave)
+    {
+        foreach (int bossWave in bossWaves)
+        {
+            if (wave == bossWave) return true;
+        }
+        return false;
+    }
 
     private void OnGameOver()
     {
