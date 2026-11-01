@@ -1743,7 +1743,7 @@ MonoBehaviour:
   enemiesPerWave: 5
   timeBetweenWaves: 3
   spawnInterval: 0.5
-  queenHealth: {fileID: 1830700528}
+  queenHealth: {fileID: 0}
   uiManager: {fileID: 1662834875}
   playerTransform: {fileID: 332719911}
   playerSpawnPoint: {fileID: 1935845561}
@@ -2905,7 +2905,7 @@ PrefabInstance:
     - target: {fileID: 3971301576218114349, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.62
+      value: -4.42461
       objectReference: {fileID: 0}
     - target: {fileID: 3971301576218114349, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
@@ -2965,7 +2965,7 @@ PrefabInstance:
     - target: {fileID: 4348002319776719767, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4348002319776719767, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
