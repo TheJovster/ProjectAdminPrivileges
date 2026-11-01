@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909376204ca982a46953b210ccd02e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  bloodEffectPrefab: {fileID: 6147407960130492875}
+  maxHealth: 100
+  bloodEffectPrefab: {fileID: 0}
 --- !u!114 &3977736286340791729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,8 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48fd5d406a5c4aa4cafab1c49e984995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  footstepSound: {fileID: 11400000, guid: b5f4838e05432224abd423173ffdf28f, type: 2}
+  playerTransform: {fileID: 0}
+  queenTransform: {fileID: 0}
+  targetUpdateInterval: 0.5
+  footstepSound: {fileID: 0}
   stepFrequency: 2
   velocityThreshold: 0.3
 --- !u!136 &8133864087183200627
@@ -172,20 +174,18 @@ MonoBehaviour:
   gibChance: 0.3
   overkillThreshold: 0.5
   deathTrigger: Death
-  deathAnimationDuration: 2.2
+  deathAnimationDuration: 1.5
   ragdollOnDeath: 0
-  gibPrefab: {fileID: 1921775067453469349, guid: 33285d00593da504f88f2e67e8d1d02b,
-    type: 3}
+  gibPrefab: {fileID: 0}
   minGibs: 4
   maxGibs: 8
-  explosionForce: 5
-  explosionRadius: 1
-  upwardModifier: 0.5
+  explosionForce: 300
+  explosionRadius: 2
+  upwardModifier: 1.5
   gibSpreadAngle: 45
-  bloodExplosionPrefab: {fileID: 167524, guid: fdac75e990da47649b31f10049c400b0, type: 3}
-  deathParticlesPrefab: {fileID: 1221293952758510, guid: 21e3fa923d4f261409d83b8d0f6e81c7,
-    type: 3}
-  characterModel: {fileID: 8132631207955750897}
+  bloodExplosionPrefab: {fileID: 193062, guid: 01949c12a89de284792dc4b7b7128404, type: 3}
+  deathParticlesPrefab: {fileID: 173590, guid: 7469283484e0dcc4887fa575d1fd7ecc, type: 3}
+  characterModel: {fileID: 8133153196450563897}
   deathSound: {fileID: 0}
   gibSound: {fileID: 0}
 --- !u!1001 &6147407960130589647
@@ -275,12 +275,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6147407960130589647}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6147407960130492875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166404, guid: 78e1c8c5b281b8b439229473779ac9aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 6147407960130589647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8132031227145655635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,9 +343,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8132031227145655635}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8132631207955750897 stripped
+--- !u!1 &8133153196450563897 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1741276027538082, guid: 767b276e5b6e4b14bbcd51b5a6e78ca8,
+  m_CorrespondingSourceObject: {fileID: 1131317976781418, guid: 767b276e5b6e4b14bbcd51b5a6e78ca8,
     type: 3}
   m_PrefabInstance: {fileID: 8132031227145655635}
   m_PrefabAsset: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
   m_Name: UnlockSAW
   m_EditorClassIdentifier: 
-  unlockID: weaponM250SAW
+  unlockID: b859007f-18a6-4578-91fb-c56052069663
   unlockName: Unlock M250SAW
   description: Unlocks the M250SAW
   icon: {fileID: 0}

@@ -45,20 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityData: {fileID: 11400000, guid: f4b8e2a6339f1d048aed8a754e1c4de8, type: 2}
-  strafeWidth: 30
   damagePointCount: 10
   tickInterval: 0.1
   damageRadius: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  tracerVFXPrefab: {fileID: 1769621416249240, guid: ab32929843ea40d48ae16ecaa85f794a,
-    type: 3}
-  impactVFXPrefab: {fileID: 1067536016464596, guid: 57e18706e2792ff4bb5561ed74b796e2,
-    type: 3}
-  tracerLine: {fileID: 0}
-  useContinuousSound: 1
+  minPaintDistance: 10
+  maxPaintDistance: 50
+  paintSampleRate: 0.1
+  paintingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  confirmedColor: {r: 1, g: 0, b: 0, a: 1}
+  lineWidth: 0.5
+  impactVFXPrefab: {fileID: 0}
+  paintLineRenderer: {fileID: 0}
+  warningDecalPrefab: {fileID: 0}
+  strafeLoopSound: {fileID: 0}
+  impactSound: {fileID: 0}
   cameraShakeIntensity: 0.3
   shakePerImpact: 1
-  showDebugLine: 1
-  debugLineColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  showDebugSpheres: 1

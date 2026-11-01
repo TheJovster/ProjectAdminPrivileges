@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
   m_Name: UnlockOrbital
   m_EditorClassIdentifier: 
-  unlockID: abilityOrbital
+  unlockID: 6c988a8f-f41e-470e-8f54-fcb9e8fa0d60
   unlockName: Unlock Orbital Strike
   description: Unlocks the Orbital Strikes
   icon: {fileID: 0}

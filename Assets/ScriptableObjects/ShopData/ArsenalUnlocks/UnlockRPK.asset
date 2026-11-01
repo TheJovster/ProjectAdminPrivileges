@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67ac9ecd87d8c6418cc1702b72de92f, type: 3}
   m_Name: UnlockRPK
   m_EditorClassIdentifier: 
-  unlockID: weaponRPK
+  unlockID: b4efcf58-a1c4-4ced-bd12-dee33b3bd675
   unlockName: Unlock the RPG
   description: Unlocks the RPK
   icon: {fileID: 0}

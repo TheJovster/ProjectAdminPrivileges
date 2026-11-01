@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   kredCost: 200
   itemType: 0
-  weaponPrefab: {fileID: 493305084615100707, guid: f2510fe869936a54a90070b425035934,
+  weaponPrefab: {fileID: 5397822666176281945, guid: f2510fe869936a54a90070b425035934,
     type: 3}
   abilityPrefab: {fileID: 0}
   healAmount: 0

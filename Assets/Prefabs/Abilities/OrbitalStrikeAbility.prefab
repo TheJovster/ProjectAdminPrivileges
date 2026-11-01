@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityData: {fileID: 11400000, guid: 237016bc4362a91439e822bcbf1e89d8, type: 2}
-  strikeDelay: 3
+  strikeDelay: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  warningIndicatorPrefab: {fileID: 5226519954266377387, guid: a8713322e7554a7449da9b5f96d68989,
-    type: 3}
-  cameraShakeIntensity: 0.75
+  warningIndicatorPrefab: {fileID: 0}
+  cameraShakeIntensity: 0.5
   showDebugSphere: 1

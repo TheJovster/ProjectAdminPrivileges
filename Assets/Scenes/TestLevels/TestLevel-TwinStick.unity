@@ -691,7 +691,7 @@ MonoBehaviour:
   shopUI: {fileID: 1662834879}
   playerWeaponHandler: {fileID: 332719912}
   abilityManager: {fileID: 1331326967}
-  playerMotor: {fileID: 0}
+  playerMotor: {fileID: 6305467577299513762}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   damageVignetteColor: {r: 1, g: 0, b: 0, a: 0.5}
   bloodEffectPrefab: {fileID: 0}
   bloodSpawnPoint: {fileID: 0}
-  damageSound: {fileID: 0}
+  damageSound: {fileID: 11400000, guid: 9cd552ea8db9b33408f765e807ce28de, type: 2}
   invulnerabilityDuration: 0.5
   vignetteImage: {fileID: 0}
   showDebugLogs: 1
@@ -2905,7 +2905,7 @@ PrefabInstance:
     - target: {fileID: 3971301576218114349, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.42461
+      value: 2.784
       objectReference: {fileID: 0}
     - target: {fileID: 3971301576218114349, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
@@ -2965,7 +2965,7 @@ PrefabInstance:
     - target: {fileID: 4348002319776719767, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348002319776719767, guid: 986e018360fad2141a3487eee6ecd1c1,
         type: 3}
@@ -6098,6 +6098,7 @@ PrefabInstance:
     - {fileID: 2148224375566905566, guid: fb0af701081b82248a46b1ad36e02d98, type: 3}
     - {fileID: 320610313289246104, guid: fb0af701081b82248a46b1ad36e02d98, type: 3}
     - {fileID: 2683080350426601827, guid: fb0af701081b82248a46b1ad36e02d98, type: 3}
+    - {fileID: 2826739058509314169, guid: fb0af701081b82248a46b1ad36e02d98, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6682151673502549124, guid: fb0af701081b82248a46b1ad36e02d98,
         type: 3}
@@ -6113,6 +6114,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1331326968}
   m_SourcePrefab: {fileID: 100100000, guid: fb0af701081b82248a46b1ad36e02d98, type: 3}
+--- !u!114 &6305467577299513762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5826261811315905056, guid: fb0af701081b82248a46b1ad36e02d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 6305467577299513761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331326961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc92bc5a60390243bc18c6d092d9c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8092453836837812970
 PrefabInstance:
   m_ObjectHideFlags: 0
